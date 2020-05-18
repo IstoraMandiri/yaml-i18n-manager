@@ -1,0 +1,8 @@
+intro: Welcome to this sub folder
+# !translate
+description: This is a description that won't be translated
+items:
+  - key: test
+    title: Testing
+  - key: hello
+    title: Hello Work

@@ -1,0 +1,101 @@
+[
+  {
+    "path": "menu.ja.yaml",
+    "locale": "ja",
+    "sig": "[0:home].title",
+    "key": "title",
+    "dHash": "OnhpU4izi1",
+    "defaultValue": "Home",
+    "value": "ホーム"
+  },
+  {
+    "path": "menu.ja.yaml",
+    "locale": "ja",
+    "sig": "[1:about].title",
+    "key": "title",
+    "dHash": "Tvyg0Qxf64",
+    "defaultValue": "About",
+    "value": "約"
+  },
+  {
+    "path": "menu.ja.yaml",
+    "locale": "ja",
+    "sig": "[2:news].title",
+    "key": "title",
+    "dHash": "aXUvIxOy8B",
+    "defaultValue": "News",
+    "value": "ニュース"
+  },
+  {
+    "path": "sub/welcome.ja.yaml",
+    "locale": "ja",
+    "sig": "intro",
+    "key": "intro",
+    "dHash": "O7zuwuv2p5",
+    "defaultValue": "Welcome to this sub folder",
+    "value": "このサブフォルダへようこそ"
+  },
+  {
+    "path": "sub/welcome.ja.yaml",
+    "locale": "ja",
+    "sig": "description",
+    "key": "description",
+    "dHash": "luDxWK7tmC",
+    "defaultValue": "This is a description that won't be translated",
+    "value": "これは翻訳されない説明です"
+  },
+  {
+    "path": "sub/welcome.ja.yaml",
+    "locale": "ja",
+    "sig": "items.[0:test].title",
+    "key": "title",
+    "dHash": "6Aaikc/D5h",
+    "defaultValue": "Testing",
+    "value": "テスト中"
+  },
+  {
+    "path": "sub/welcome.ja.yaml",
+    "locale": "ja",
+    "sig": "items.[1:hello].title",
+    "key": "title",
+    "dHash": "UJJQgXm1Ai",
+    "defaultValue": "Hello Work",
+    "value": "ハローワーク"
+  },
+  {
+    "path": "ui.global.ja.yaml",
+    "locale": "ja",
+    "sig": "title",
+    "key": "title",
+    "dHash": "fozSBW2nOn",
+    "defaultValue": "Title",
+    "value": "題名"
+  },
+  {
+    "path": "ui.global.ja.yaml",
+    "locale": "ja",
+    "sig": "description",
+    "key": "description",
+    "dHash": "DdECGc15NC",
+    "defaultValue": "This is a description",
+    "value": "これは説明です"
+  },
+  {
+    "path": "ui.global.ja.yaml",
+    "locale": "ja",
+    "sig": "new",
+    "key": "new",
+    "dHash": "V7FjiOgcRD",
+    "defaultValue": "Some new key",
+    "value": "新しいキー"
+  },
+  {
+    "path": "ui.global.ja.yaml",
+    "locale": "ja",
+    "sig": "body",
+    "key": "body",
+    "dHash": "zcRMuPQjiV",
+    "defaultValue": "## This is some markdown\n\nHow is this?\n",
+    "value": "##これはいくつかの値下げです\n\nこれはどのように？\n"
+  }
+]

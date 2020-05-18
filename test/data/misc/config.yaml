@@ -1,0 +1,13 @@
+defaultLocale: 'en'
+locales:
+  - key: 'de'
+  - key: 'ja'
+  - key: 'zh'
+    googleKey: 'zh-CN'
+  - key: 'zht'
+    googleKEy: 'zh-TW'
+filterKeys:
+  - link
+  - linkRef
+filterFiles:
+  - 'sub/*'

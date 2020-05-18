@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`read returns the key/values 1`] = `
+Array [
+  Object {
+    "key": "title",
+    "locale": "en",
+    "path": "menu.en.yaml",
+    "sig": "[0:home].title",
+    "vHash": "OnhpU4izi1",
+    "value": "Home",
+  },
+  Object {
+    "key": "link",
+    "locale": "en",
+    "path": "menu.en.yaml",
+    "sig": "[0:home].link",
+    "vHash": "il7asoJjJE",
+    "value": "/",
+  },
+  Object {
+    "key": "title",
+    "locale": "en",
+    "path": "menu.en.yaml",
+    "sig": "[1:about].title",
+    "vHash": "Tvyg0Qxf64",
+    "value": "About",
+  },
+  Object {
+    "key": "link",
+    "locale": "en",
+    "path": "menu.en.yaml",
+    "sig": "[1:about].link",
+    "vHash": "l5vdxKjKr9",
+    "value": "/about",
+  },
+  Object {
+    "key": "title",
+    "locale": "en",
+    "path": "menu.en.yaml",
+    "sig": "[2:news].title",
+    "vHash": "aXUvIxOy8B",
+    "value": "News",
+  },
+  Object {
+    "key": "link",
+    "locale": "en",
+    "path": "menu.en.yaml",
+    "sig": "[2:news].link",
+    "vHash": "9GsW7VpO30",
+    "value": "/news",
+  },
+  Object {
+    "key": "intro",
+    "locale": "en",
+    "path": "sub/welcome.en.yaml",
+    "sig": "intro",
+    "vHash": "O7zuwuv2p5",
+    "value": "Welcome to this sub folder",
+  },
+  Object {
+    "key": "description",
+    "locale": "en",
+    "path": "sub/welcome.en.yaml",
+    "sig": "description",
+    "vHash": "luDxWK7tmC",
+    "value": "This is a description that won't be translated",
+  },
+  Object {
+    "key": "title",
+    "locale": "en",
+    "path": "sub/welcome.en.yaml",
+    "sig": "items.[0:test].title",
+    "vHash": "6Aaikc/D5h",
+    "value": "Testing",
+  },
+  Object {
+    "key": "title",
+    "locale": "en",
+    "path": "sub/welcome.en.yaml",
+    "sig": "items.[1:hello].title",
+    "vHash": "UJJQgXm1Ai",
+    "value": "Hello Work",
+  },
+  Object {
+    "key": "title",
+    "locale": "en",
+    "path": "ui.global.en.yaml",
+    "sig": "title",
+    "vHash": "fozSBW2nOn",
+    "value": "Title",
+  },
+  Object {
+    "key": "description",
+    "locale": "en",
+    "path": "ui.global.en.yaml",
+    "sig": "description",
+    "vHash": "DdECGc15NC",
+    "value": "This is a description",
+  },
+  Object {
+    "key": "new",
+    "locale": "en",
+    "path": "ui.global.en.yaml",
+    "sig": "new",
+    "vHash": "V7FjiOgcRD",
+    "value": "Some new key",
+  },
+  Object {
+    "key": "body",
+    "locale": "en",
+    "path": "ui.global.en.yaml",
+    "sig": "body",
+    "vHash": "zcRMuPQjiV",
+    "value": "## This is some markdown
+
+How is this?
+",
+  },
+]
+`;

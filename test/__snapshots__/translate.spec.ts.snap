@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`translate returns the correct translated YAML object 1`] = `
+Array [
+  Object {
+    "dHash": "string",
+    "defaultValue": "string",
+    "key": "string",
+    "locale": "jp",
+    "path": "string",
+    "sig": "string",
+    "value": "string ](//![#!()",
+  },
+  Object {
+    "dHash": "string2",
+    "defaultValue": "string2",
+    "key": "string2",
+    "locale": "jp",
+    "path": "string2",
+    "sig": "string2",
+    "value": "string2 ](//![#!()",
+  },
+]
+`;

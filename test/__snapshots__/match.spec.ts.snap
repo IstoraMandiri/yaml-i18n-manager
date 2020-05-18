@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`match matches sibling translations 1`] = `
+Array [
+  Object {
+    "key": "b",
+    "locale": "en",
+    "matches": Object {
+      "jp": Object {
+        "key": "b",
+        "locale": "jp",
+        "path": "a.jp.yaml",
+        "sig": "a",
+        "vHash": "c",
+        "value": "a",
+      },
+    },
+    "path": "a.en.yaml",
+    "sig": "a",
+    "vHash": "c",
+    "value": "a",
+  },
+  Object {
+    "key": "b",
+    "locale": "jp",
+    "matches": Object {
+      "en": Object {
+        "key": "b",
+        "locale": "en",
+        "path": "a.en.yaml",
+        "sig": "a",
+        "vHash": "c",
+        "value": "a",
+      },
+    },
+    "path": "a.jp.yaml",
+    "sig": "a",
+    "vHash": "c",
+    "value": "a",
+  },
+  Object {
+    "key": "b",
+    "locale": "en",
+    "matches": Object {
+      "jp": Object {
+        "key": "b",
+        "locale": "jp",
+        "path": "b.jp.yaml",
+        "sig": "a[0:test].thing",
+        "vHash": "c",
+        "value": "a",
+      },
+    },
+    "path": "b.en.yaml",
+    "sig": "a[0:test].thing",
+    "vHash": "c",
+    "value": "a",
+  },
+  Object {
+    "key": "b",
+    "locale": "jp",
+    "matches": Object {
+      "en": Object {
+        "key": "b",
+        "locale": "en",
+        "path": "b.en.yaml",
+        "sig": "a[0:test].thing",
+        "vHash": "c",
+        "value": "a",
+      },
+    },
+    "path": "b.jp.yaml",
+    "sig": "a[0:test].thing",
+    "vHash": "c",
+    "value": "a",
+  },
+]
+`;

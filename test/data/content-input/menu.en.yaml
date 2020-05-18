@@ -1,0 +1,9 @@
+- key: home
+  title: Home
+  link: /
+- key: about
+  title: About
+  link: /about
+- key: news
+  title: News
+  link: /news

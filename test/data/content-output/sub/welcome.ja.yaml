@@ -1,0 +1,7 @@
+intro: このサブフォルダへようこそ
+description: これは翻訳されない説明です
+items:
+  - title: テスト中
+    key: test
+  - title: ハローワーク
+    key: hello
