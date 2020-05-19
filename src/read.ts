@@ -1,7 +1,7 @@
 import YAML from 'yaml';
 import { resolve, relative } from 'path';
 import { promises } from 'fs';
-import hash from './hash';
+import { hash } from './utils';
 const { readdir, readFile } = promises;
 
 interface ParsedFile {

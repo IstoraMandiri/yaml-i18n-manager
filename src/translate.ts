@@ -1,9 +1,10 @@
 import googleTranslate from 'google-translate';
 
-import { key as apiKey } from '../creds/translate-api.json';
-import hash from './hash';
+if (!process.env.GT_KEY) {
+  throw new Error('You must specify a google translate key `export GT_KEY=XXX`');
+}
 
-const gt = googleTranslate(apiKey);
+const gt = googleTranslate(process.env.GT_KEY);
 
 function transformTranslation(translated: string, original: string) {
   let str = translated

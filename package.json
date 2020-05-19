@@ -1,12 +1,12 @@
 {
-  "name": "NAME_HERE",
+  "name": "yaml-i18n-manager",
   "version": "0.0.1",
-  "description": "DESCRIPTION_HERE",
-  "repository": "REPO_URL_HERE",
-  "author": "AUTHOR <EMAIL>",
+  "description": "CLI Tool for managing gatsby-plugin-yaml-i18n",
+  "repository": "https://github.com/hitchcott/yaml-i18n-manager",
+  "author": "Chris Hitchcott",
   "license": "MIT",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist/**/*"
   ],
@@ -19,27 +19,29 @@
     "coverage": "jest --coverage"
   },
   "devDependencies": {
+    "@types/flat": "^5.0.1",
     "@types/jest": "^25.2.2",
     "@types/node": "^14.0.1",
+    "@types/rimraf": "^3.0.0",
+    "@types/yargs": "^15.0.5",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
-    "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
+    "eslint": "^6.8.0",
     "jest": "^26.0.1",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
     "ts-jest": "^25.5.1",
-    "ts-node": "^8.10.1",
     "ts-node-dev": "^1.0.0-pre.44",
+    "ts-node": "^8.10.1",
     "typescript": "^3.9.2"
   },
   "dependencies": {
-    "@types/flat": "^5.0.1",
-    "@types/rimraf": "^3.0.0",
     "async-csv": "^2.1.3",
-    "flat": "^5.0.0",
     "google-translate": "git+https://github.com/AdamBCo/node-google-translate.git#bd684a94de39a722d81ddd21b48296702500c018",
-    "yaml": "^1.9.2"
+    "prompts": "^2.3.2",
+    "yaml": "^1.9.2",
+    "yargs": "^15.3.1"
   }
 }

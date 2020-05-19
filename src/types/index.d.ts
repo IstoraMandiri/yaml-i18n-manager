@@ -1,3 +1,6 @@
+declare module 'google-translate';
+declare module 'async-csv';
+
 interface ExistingYaml {
   path: string;
   locale: string;
@@ -21,5 +24,9 @@ interface TranslatedYaml {
   update?: string;
 }
 
-declare module 'google-translate';
-declare module 'async-csv';
+interface Config {
+  defaultLocale: string;
+  filterKeys: string[];
+  contentDir: string;
+  managementDir: string;
+}

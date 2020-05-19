@@ -1,44 +1,45 @@
-import read from './read';
-import translate from './translate';
-import write from './write';
-import generate from './csv';
-import match from './match';
-import resolve from './resolve';
+#!/usr/bin/env node
+import yargs from 'yargs';
+import { defaultConfig, initConfig } from './config';
+import commands from './commands';
 
-const filterKeys = ['link'];
-
-// TODO manage comments etc...
-
-/* prompts */
-/*
--- generate
-
--- export
-
--- import
-
-TODO:
--- update
-*/
-
-const inDir = './test/data/content-input';
-const outDir = './test/data/content-output';
-
-const defaultLocale = 'en';
-
-async function getTranslations(targetLocale: string) {
-  const existing = await read(inDir);
-  const filtered = existing.filter(({ key }) => filterKeys.indexOf(key) === -1);
-  const matched = match(filtered).filter(({ locale }) => locale === defaultLocale);
-  const requiresTranslating = matched.filter(({ matches }) => !matches[targetLocale]);
-  const translated = await translate(requiresTranslating, defaultLocale, targetLocale);
-  return resolve(matched, translated, targetLocale);
+function requireLocale(y: any) {
+  y.positional('locale', {
+    describe: 'Target language code (e.g. ja)',
+    type: 'string',
+  });
 }
 
-(async () => {
-  const translations = await getTranslations('ja');
+const argv: any = yargs
+  .usage('Usage: $0 <command> [options]')
+  .version('v')
+  .alias('v', 'version')
+  .help('h')
+  .alias('h', 'help')
+  .options({
+    c: {
+      alias: 'config',
+      type: 'string',
+      describe: 'Config file',
+      default: `${defaultConfig.managementDir}/config.yaml`,
+    },
+  })
+  .command('init', 'Generate Config File')
+  .command('generate <locale>', 'Auto-translate content', requireLocale)
+  .command('export <locale>', 'Export CSV for a locale', requireLocale)
+  .command('import <csv>', 'Import CSV translations', (y: any) => {
+    y.positional('csv', {
+      describe: 'Relative CSV file path',
+      type: 'string',
+    });
+  })
+  .demandCommand(1, 'Please enter a command').argv;
 
-  // await write(translations, outDir);
-  // const csv = await generate(translations);
-  console.log(translations);
+(async () => {
+  const config = await initConfig(argv);
+  if (!config) {
+    return;
+  }
+  const [command] = argv._;
+  await commands[command](argv, config);
 })();
