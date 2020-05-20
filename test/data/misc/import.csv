@@ -1,5 +1,5 @@
 dHash,Location,Key,Default Language,Existing Translation,Updated Translation (or leave blank)
-OnhpU4izi1,menu.ja.yaml,[0:home].title,Home,ホーム,
+OnhpU4izi1,menu.ja.yaml,[0:home].title,Home,ホーム,Test update
 Tvyg0Qxf64,menu.ja.yaml,[1:about].title,About,約,
 aXUvIxOy8B,menu.ja.yaml,[2:news].title,News,ニュース,
 O7zuwuv2p5,sub/welcome.ja.yaml,intro,Welcome to this sub folder,このサブフォルダへようこそ,
@@ -15,4 +15,6 @@ How is this?
 ","##これはいくつかの値下げです
 
 これはどのように？
-",
+","## Multi Line
+
+Test"

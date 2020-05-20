@@ -1,7 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`commands import imports 1`] = `
+exports[`commands export exports 1`] = `
 Array [
+  Object {
+    "content": "dHash,Location,Key,Default Language,Existing Translation,Updated Translation (or leave blank)
+OnhpU4izi1,menu.ja.yaml,[0:home].title,Home,ホーム,
+Tvyg0Qxf64,menu.ja.yaml,[1:about].title,About,約,
+aXUvIxOy8B,menu.ja.yaml,[2:news].title,News,ニュース,
+O7zuwuv2p5,sub/welcome.ja.yaml,intro,Welcome to this sub folder,このサブフォルダへようこそ,
+luDxWK7tmC,sub/welcome.ja.yaml,description,This is a description that won't be translated,これは翻訳されない説明です,
+6Aaikc/D5h,sub/welcome.ja.yaml,items.[0:test].title,Testing,テスト中,
+UJJQgXm1Ai,sub/welcome.ja.yaml,items.[1:hello].title,Hello Work,ハローワーク,
+fozSBW2nOn,ui.global.ja.yaml,title,Title,題名,
+DdECGc15NC,ui.global.ja.yaml,description,This is a description,これは説明です,
+V7FjiOgcRD,ui.global.ja.yaml,new,Some new key,いくつかの新しいキー,
+zcRMuPQjiV,ui.global.ja.yaml,body,\\"## This is some markdown
+
+How is this?
+\\",\\"##これはいくつかの値下げです
+
+これはどのように？
+\\",
+",
+    "fileName": "test/data/test-management/ja.csv",
+  },
+]
+`;
+
+exports[`commands generate generates 1`] = `
+Array [
+  Object {
+    "content": "- key: home
+  title: Home
+  link: /
+- key: about
+  title: About
+  link: /about
+- key: news
+  title: News
+  link: /news
+",
+    "fileName": "test/data/test-content/menu.en.yaml",
+  },
   Object {
     "content": "- key: home
   title: ホーム
@@ -11,6 +51,17 @@ Array [
   title: ニュース
 ",
     "fileName": "test/data/test-content/menu.ja.yaml",
+  },
+  Object {
+    "content": "intro: Welcome to this sub folder
+description: This is a description that won't be translated
+items:
+  - key: test
+    title: Testing
+  - key: hello
+    title: Hello Work
+",
+    "fileName": "test/data/test-content/sub/welcome.en.yaml",
   },
   Object {
     "content": "intro: このサブフォルダへようこそ
@@ -24,13 +75,132 @@ items:
     "fileName": "test/data/test-content/sub/welcome.ja.yaml",
   },
   Object {
+    "content": "title: Title
+description: This is a description
+new: Some new key
+body: |
+  ## This is some markdown
+
+  How is this?
+",
+    "fileName": "test/data/test-content/ui.global.en.yaml",
+  },
+  Object {
     "content": "title: 題名
 description: これは説明です
-new: 新しいキー
+new: いくつかの新しいキー
 body: |
   ##これはいくつかの値下げです
 
   これはどのように？
+",
+    "fileName": "test/data/test-content/ui.global.ja.yaml",
+  },
+]
+`;
+
+exports[`commands import imports 1`] = `
+Array [
+  Object {
+    "content": "- key: home
+  title: Home
+  link: /
+- key: about
+  title: About
+  link: /about
+- key: news
+  title: News
+  link: /news
+",
+    "fileName": "test/data/test-content/menu.en.yaml",
+  },
+  Object {
+    "content": "- key: home
+  title: Test update
+",
+    "fileName": "test/data/test-content/menu.ja.yaml",
+  },
+  Object {
+    "content": "intro: Welcome to this sub folder
+description: This is a description that won't be translated
+items:
+  - key: test
+    title: Testing
+  - key: hello
+    title: Hello Work
+",
+    "fileName": "test/data/test-content/sub/welcome.en.yaml",
+  },
+  Object {
+    "content": "title: Title
+description: This is a description
+new: Some new key
+body: |
+  ## This is some markdown
+
+  How is this?
+",
+    "fileName": "test/data/test-content/ui.global.en.yaml",
+  },
+  Object {
+    "content": "body: |-
+  ## Multi Line
+
+  Test
+",
+    "fileName": "test/data/test-content/ui.global.ja.yaml",
+  },
+]
+`;
+
+exports[`commands import merges correctly 1`] = `
+Array [
+  Object {
+    "content": "- key: home
+  title: Home
+  link: /
+- key: about
+  title: About
+  link: /about
+- key: news
+  title: News
+  link: /news
+",
+    "fileName": "test/data/test-content/menu.en.yaml",
+  },
+  Object {
+    "content": "- key: home
+  title: Test update
+",
+    "fileName": "test/data/test-content/menu.ja.yaml",
+  },
+  Object {
+    "content": "intro: Welcome to this sub folder
+description: This is a description that won't be translated
+items:
+  - key: test
+    title: Testing
+  - key: hello
+    title: Hello Work
+",
+    "fileName": "test/data/test-content/sub/welcome.en.yaml",
+  },
+  Object {
+    "content": "title: Title
+description: This is a description
+new: Some new key
+body: |
+  ## This is some markdown
+
+  How is this?
+",
+    "fileName": "test/data/test-content/ui.global.en.yaml",
+  },
+  Object {
+    "content": "body: |-
+  ## Multi Line
+
+  Test
 ",
     "fileName": "test/data/test-content/ui.global.ja.yaml",
   },

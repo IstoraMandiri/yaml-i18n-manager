@@ -3,6 +3,7 @@ import { resolve, dirname } from 'path';
 import { promises } from 'fs';
 
 import type { TranslatedYaml } from './types';
+import { log } from './utils';
 
 const { readFile, mkdir, writeFile } = promises;
 
@@ -25,7 +26,6 @@ function inflate(key: string, val: any, obj: any): any {
       ...inflate(rest.join('.'), val, arr[i]),
       key: subKey,
     });
-    // Object.keys(obj)
     return arr;
   }
   if (rest.length === 0) {

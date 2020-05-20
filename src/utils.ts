@@ -49,3 +49,7 @@ export function combine(
     },
   );
 }
+
+export function log(str: string, ...rest: any) {
+  console.log(str, ...rest);
+}

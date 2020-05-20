@@ -1,6 +1,7 @@
 import yaml from 'yaml';
 import { promises } from 'fs';
 import { resolve } from 'path';
+import { log } from './utils';
 
 const { writeFile, readFile, mkdir } = promises;
 
@@ -19,8 +20,7 @@ export async function initConfig(argv: any) {
       const path = location.split('/').slice(0, -1).join('/');
       await mkdir(path, { recursive: true });
       await writeFile(location, yaml.stringify(defaultConfig));
-      console.log(`Wrote config to ${argv.config}`);
-      console.log(defaultConfig);
+      log(`Wrote config to ${argv.config}`, defaultConfig);
       return null;
     } catch (e) {
       throw e;
@@ -30,8 +30,8 @@ export async function initConfig(argv: any) {
   try {
     configData = await readFile(location, 'utf8');
   } catch (e) {
-    console.log(location);
-    console.log(
+    log(location);
+    log(
       'Config file not found. Pass a config file with `--config` or initialize with `init` command.',
     );
     return null;
@@ -39,8 +39,7 @@ export async function initConfig(argv: any) {
   try {
     config = yaml.parse(configData);
   } catch (e) {
-    console.log(location);
-    console.log(`Could not parse the config file at ${location}`);
+    log(`Could not parse the config file at ${location}`);
     return null;
   }
   return config;

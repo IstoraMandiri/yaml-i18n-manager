@@ -1,7 +1,7 @@
 import read from './read';
 import translate from './translate';
-import { combine, match } from './utils';
-import { parse } from './csv';
+import { combine, match, log } from './utils';
+import { parse, generate } from './csv';
 import write from './write';
 
 import type { Config } from './types';
@@ -22,16 +22,19 @@ const commands: any = {
     const translations = await getTranslations(locale, config);
     const outputDir = config.outputDir || config.contentDir;
     await write(translations, outputDir);
-    console.log(`Wrote ${translations.length} translations to ${outputDir}`);
+    log(`Wrote ${translations.length} translations to ${outputDir}`);
   },
   export: async ({ locale }: { locale: string }, config: Config) => {
-    console.log('export', { locale, config });
+    const translations = await getTranslations(locale, config);
+    const filePath = `${config.managementDir}/${locale}.csv`;
+    await generate(translations, filePath);
+    log(`Wrote to ${filePath}`);
   },
   import: async ({ csv }: { csv: string }, config: Config) => {
     const imports = await parse(csv);
     const outputDir = config.outputDir || config.contentDir;
     await write(imports, outputDir);
-    console.log(`Wrote ${imports.length} imports to ${outputDir}`);
+    log(`Wrote ${imports.length} imports to ${outputDir}`);
   },
   // TODO update
 };
