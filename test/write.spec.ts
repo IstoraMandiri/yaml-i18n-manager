@@ -1,33 +1,36 @@
 import rimraf from 'rimraf';
-import { resolve, relative } from 'path';
-import { promises } from 'fs';
-const { readdir, readFile } = promises;
-
-import translatedYaml from './data/misc/translated.json';
+import fs from 'fs-extra';
 
 import write from '../src/write';
 
-async function scanFiles(root: string, dir?: string): Promise<any[]> {
-  const target = dir || root;
-  const dirEntries = await readdir(target, { withFileTypes: true });
-  const files = await Promise.all(
-    dirEntries.map(async (entry) => {
-      const res = resolve(target, entry.name);
-      return entry.isDirectory()
-        ? scanFiles(root, res)
-        : { fileName: relative(__dirname, res), content: await readFile(res, 'utf8') };
-    }),
-  );
-  return Array.prototype.concat(...files);
-}
+import translatedYaml from './data/misc/translated.json';
+import scan from './util/scan';
 
 const outDir = `./test/data/out-temp`;
+const mergeSrc = './test/data/merge';
+const mergeTest = './test/data/merge-test';
 
+function clean() {
+  rimraf.sync(outDir);
+}
 describe('write', () => {
-  beforeAll(() => rimraf.sync(outDir));
-  afterAll(() => rimraf.sync(outDir));
-  it('writes files correctly', async () => {
+  beforeAll(clean);
+  afterEach(clean);
+  it('writes freshly correctly', async () => {
     await write(translatedYaml, outDir);
-    expect(await scanFiles(outDir)).toMatchSnapshot();
+    expect(await scan(outDir)).toMatchSnapshot();
+  });
+  describe('merging', () => {
+    beforeEach(async () => {
+      rimraf.sync(mergeTest);
+      await fs.copy(mergeSrc, mergeTest);
+    });
+    afterEach(async () => {
+      rimraf.sync(mergeTest);
+    });
+    it('merges correctly', async () => {
+      await write(translatedYaml, mergeTest);
+      expect(await scan(mergeTest)).toMatchSnapshot();
+    });
   });
 });

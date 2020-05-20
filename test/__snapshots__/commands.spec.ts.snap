@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`commands import imports 1`] = `
+Array [
+  Object {
+    "content": "- key: home
+  title: ホーム
+- key: about
+  title: 約
+- key: news
+  title: ニュース
+",
+    "fileName": "test/data/test-content/menu.ja.yaml",
+  },
+  Object {
+    "content": "intro: このサブフォルダへようこそ
+description: これは翻訳されない説明です
+items:
+  - key: test
+    title: テスト中
+  - key: hello
+    title: ハローワーク
+",
+    "fileName": "test/data/test-content/sub/welcome.ja.yaml",
+  },
+  Object {
+    "content": "title: 題名
+description: これは説明です
+new: 新しいキー
+body: |
+  ##これはいくつかの値下げです
+
+  これはどのように？
+",
+    "fileName": "test/data/test-content/ui.global.ja.yaml",
+  },
+]
+`;

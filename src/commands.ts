@@ -1,6 +1,10 @@
 import read from './read';
 import translate from './translate';
 import { combine, match } from './utils';
+import { parse } from './csv';
+import write from './write';
+
+import type { Config } from './types';
 
 async function getTranslations(targetLocale: string, opts: Config) {
   const { contentDir, filterKeys, defaultLocale } = opts;
@@ -12,18 +16,22 @@ async function getTranslations(targetLocale: string, opts: Config) {
   return combine(matched, translated, targetLocale);
 }
 
-const commands: { [k: string]: (p: any, c: Config) => Promise<void> } = {
+const commands: any = {
   // TODO generate-all
   generate: async ({ locale }: { locale: string }, config: Config) => {
-    const res = await getTranslations(locale, config);
-    // TODO write them!
-    console.log('got', res);
+    const translations = await getTranslations(locale, config);
+    const outputDir = config.outputDir || config.contentDir;
+    await write(translations, outputDir);
+    console.log(`Wrote ${translations.length} translations to ${outputDir}`);
   },
   export: async ({ locale }: { locale: string }, config: Config) => {
     console.log('export', { locale, config });
   },
   import: async ({ csv }: { csv: string }, config: Config) => {
-    console.log('import', { csv, config });
+    const imports = await parse(csv);
+    const outputDir = config.outputDir || config.contentDir;
+    await write(imports, outputDir);
+    console.log(`Wrote ${imports.length} imports to ${outputDir}`);
   },
   // TODO update
 };

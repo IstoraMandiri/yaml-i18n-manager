@@ -1,5 +1,7 @@
 import { createHash } from 'crypto';
 
+import type { ExistingYaml, TranslatedYaml, MatchedYaml } from './types';
+
 export function normalizeSig({ path, sig }: ExistingYaml | TranslatedYaml) {
   const nPath = path.split('.').slice(0, -2).join('.');
   return `${nPath}:${sig.replace(/\[.*?\:/g, '[')}`;
@@ -13,7 +15,7 @@ export function hash(str: string): string {
   return createHash('sha256').update(str, 'utf8').digest('base64').slice(0, 10);
 }
 
-export function match(yamls: ExistingYaml[]): ExistingYaml[] {
+export function match(yamls: ExistingYaml[]): MatchedYaml[] {
   return yamls.map((dYaml) => {
     const matches = yamls.reduce((o, tYaml) => {
       if (tYaml.locale == dYaml.locale || normalizeSig(tYaml) !== normalizeSig(dYaml)) {
@@ -26,21 +28,24 @@ export function match(yamls: ExistingYaml[]): ExistingYaml[] {
 }
 
 export function combine(
-  matched: ExistingYaml[],
+  matched: MatchedYaml[],
   translated: TranslatedYaml[],
   locale: string,
 ): TranslatedYaml[] {
-  return matched.map((m) => {
-    const match = m.matches[locale] || translated.find((t) => normalizeSig(t) === normalizeSig(m));
-    const path = replaceLocaleInPath(m.path, `${locale}.yaml`);
-    return {
-      path,
-      locale: locale,
-      sig: m.sig,
-      key: m.key,
-      dHash: m.vHash,
-      defaultValue: m.value,
-      value: match && match.value,
-    };
-  });
+  return matched.map(
+    (m): TranslatedYaml => {
+      const match =
+        (m.matches || {})[locale] || translated.find((t) => normalizeSig(t) === normalizeSig(m));
+      const path = replaceLocaleInPath(m.path, `${locale}.yaml`);
+      return {
+        path,
+        locale: locale,
+        sig: m.sig,
+        key: m.key,
+        dHash: m.vHash,
+        defaultValue: m.value,
+        value: match && match.value,
+      };
+    },
+  );
 }

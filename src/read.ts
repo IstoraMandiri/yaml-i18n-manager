@@ -4,6 +4,8 @@ import { promises } from 'fs';
 import { hash } from './utils';
 const { readdir, readFile } = promises;
 
+import type { ExistingYaml } from './types';
+
 interface ParsedFile {
   absolutePath: string;
   relativePath: string;
@@ -55,13 +57,13 @@ function flatten<T extends Record<string, any>>(
 }
 
 function normalize(files: ParsedFile[]): ExistingYaml[] {
-  return files.reduce((a1, { yaml, relativePath: path }) => {
+  return files.reduce((a1, { yaml, relativePath: path }): any => {
     const [locale] = path.split('.').slice(-2);
     const flat = flatten(yaml) as { [k: string]: any };
     return [
       ...a1,
       ...Object.keys(flat).reduce(
-        (a2, sig) => [
+        (a2, sig): any => [
           ...a2,
           {
             path,

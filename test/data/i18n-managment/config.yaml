@@ -1,6 +1,7 @@
 defaultLocale: en
 contentDir: test/data/content-input
-managementDir: test/data/i18n-management
+outputDir: test/data/content-output
+managementDir: test/data/test-i18n-management
 filterKeys:
   - link
   - className

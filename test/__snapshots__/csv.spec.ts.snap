@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`writeCsv formats the CSV file correctly 1`] = `
+exports[`csv generates csv 1`] = `
 "dHash,Location,Key,Default Language,Existing Translation,Updated Translation (or leave blank)
 OnhpU4izi1,menu.ja.yaml,[0:home].title,Home,ホーム,
 Tvyg0Qxf64,menu.ja.yaml,[1:about].title,About,約,
@@ -20,4 +20,103 @@ How is this?
 これはどのように？
 \\",
 "
+`;
+
+exports[`csv parses csv 1`] = `
+Array [
+  Object {
+    "dHash": "OnhpU4izi1",
+    "defaultValue": "Home",
+    "path": "menu.ja.yaml",
+    "sig": "[0:home].title",
+    "update": "",
+    "value": "ホーム",
+  },
+  Object {
+    "dHash": "Tvyg0Qxf64",
+    "defaultValue": "About",
+    "path": "menu.ja.yaml",
+    "sig": "[1:about].title",
+    "update": "",
+    "value": "約",
+  },
+  Object {
+    "dHash": "aXUvIxOy8B",
+    "defaultValue": "News",
+    "path": "menu.ja.yaml",
+    "sig": "[2:news].title",
+    "update": "",
+    "value": "ニュース",
+  },
+  Object {
+    "dHash": "O7zuwuv2p5",
+    "defaultValue": "Welcome to this sub folder",
+    "path": "sub/welcome.ja.yaml",
+    "sig": "intro",
+    "update": "",
+    "value": "このサブフォルダへようこそ",
+  },
+  Object {
+    "dHash": "luDxWK7tmC",
+    "defaultValue": "This is a description that won't be translated",
+    "path": "sub/welcome.ja.yaml",
+    "sig": "description",
+    "update": "",
+    "value": "これは翻訳されない説明です",
+  },
+  Object {
+    "dHash": "6Aaikc/D5h",
+    "defaultValue": "Testing",
+    "path": "sub/welcome.ja.yaml",
+    "sig": "items.[0:test].title",
+    "update": "",
+    "value": "テスト中",
+  },
+  Object {
+    "dHash": "UJJQgXm1Ai",
+    "defaultValue": "Hello Work",
+    "path": "sub/welcome.ja.yaml",
+    "sig": "items.[1:hello].title",
+    "update": "",
+    "value": "ハローワーク",
+  },
+  Object {
+    "dHash": "fozSBW2nOn",
+    "defaultValue": "Title",
+    "path": "ui.global.ja.yaml",
+    "sig": "title",
+    "update": "",
+    "value": "題名",
+  },
+  Object {
+    "dHash": "DdECGc15NC",
+    "defaultValue": "This is a description",
+    "path": "ui.global.ja.yaml",
+    "sig": "description",
+    "update": "",
+    "value": "これは説明です",
+  },
+  Object {
+    "dHash": "V7FjiOgcRD",
+    "defaultValue": "Some new key",
+    "path": "ui.global.ja.yaml",
+    "sig": "new",
+    "update": "",
+    "value": "新しいキー",
+  },
+  Object {
+    "dHash": "zcRMuPQjiV",
+    "defaultValue": "## This is some markdown
+
+How is this?
+",
+    "path": "ui.global.ja.yaml",
+    "sig": "body",
+    "update": "",
+    "value": "##これはいくつかの値下げです
+
+これはどのように？
+",
+  },
+]
 `;

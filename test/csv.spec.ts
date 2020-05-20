@@ -1,8 +1,14 @@
+import { resolve } from 'path';
 import data from './data/misc/translated.json';
-import csvGenerate from '../src/csv';
+import { generate, parse } from '../src/csv';
 
-describe('writeCsv', () => {
-  it('formats the CSV file correctly', async () => {
-    expect(await csvGenerate(data)).toMatchSnapshot();
+const sampleImport = resolve(__dirname, './data/misc/import.csv');
+
+describe('csv', () => {
+  it('generates csv', async () => {
+    expect(await generate(data)).toMatchSnapshot();
+  });
+  it('parses csv', async () => {
+    expect(await parse(sampleImport)).toMatchSnapshot();
   });
 });

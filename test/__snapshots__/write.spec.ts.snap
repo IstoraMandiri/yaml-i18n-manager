@@ -1,27 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`write writes files correctly 1`] = `
+exports[`write merging merges correctly 1`] = `
 Array [
   Object {
-    "content": "- title: ホーム
-  key: home
-- title: 約
-  key: about
-- title: ニュース
-  key: news
+    "content": "- key: home
+  title: ホーム
+- key: about
+  title: 約
+- key: news
+  title: ニュース
+- key: special
+  title: Don't delete me
 ",
-    "fileName": "data/out-temp/menu.ja.yaml",
+    "fileName": "test/data/merge-test/menu.ja.yaml",
   },
   Object {
     "content": "intro: このサブフォルダへようこそ
 description: これは翻訳されない説明です
 items:
-  - title: テスト中
-    key: test
-  - title: ハローワーク
-    key: hello
+  - key: test
+    title: テスト中
+  - key: hello
+    title: ハローワーク
 ",
-    "fileName": "data/out-temp/sub/welcome.ja.yaml",
+    "fileName": "test/data/merge-test/sub/welcome.ja.yaml",
   },
   Object {
     "content": "title: 題名
@@ -32,7 +34,44 @@ body: |
 
   これはどのように？
 ",
-    "fileName": "data/out-temp/ui.global.ja.yaml",
+    "fileName": "test/data/merge-test/ui.global.ja.yaml",
+  },
+]
+`;
+
+exports[`write writes freshly correctly 1`] = `
+Array [
+  Object {
+    "content": "- key: home
+  title: ホーム
+- key: about
+  title: 約
+- key: news
+  title: ニュース
+",
+    "fileName": "test/data/out-temp/menu.ja.yaml",
+  },
+  Object {
+    "content": "intro: このサブフォルダへようこそ
+description: これは翻訳されない説明です
+items:
+  - key: test
+    title: テスト中
+  - key: hello
+    title: ハローワーク
+",
+    "fileName": "test/data/out-temp/sub/welcome.ja.yaml",
+  },
+  Object {
+    "content": "title: 題名
+description: これは説明です
+new: 新しいキー
+body: |
+  ##これはいくつかの値下げです
+
+  これはどのように？
+",
+    "fileName": "test/data/out-temp/ui.global.ja.yaml",
   },
 ]
 `;

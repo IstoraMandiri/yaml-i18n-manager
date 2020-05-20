@@ -1,5 +1,7 @@
 import googleTranslate from 'google-translate';
 
+import type { ExistingYaml, TranslatedYaml } from './types';
+
 if (!process.env.GT_KEY) {
   throw new Error('You must specify a google translate key `export GT_KEY=XXX`');
 }

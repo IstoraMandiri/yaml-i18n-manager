@@ -1,19 +1,29 @@
-declare module 'google-translate';
-declare module 'async-csv';
+declare global {
+  namespace NodeJS {
+    interface ProcessEnv {
+      GT_KEY: string;
+      NODE_ENV: 'development' | 'production';
+      PWD: string;
+    }
+  }
+}
 
-interface ExistingYaml {
+export interface ExistingYaml {
   path: string;
   locale: string;
   sig: string;
   key: string;
   value: string;
   vHash: string;
-  matches?: {
+}
+
+export interface MatchedYaml extends ExistingYaml {
+  matches: {
     [key: string]: ExistingYaml;
   };
 }
 
-interface TranslatedYaml {
+export interface TranslatedYaml {
   path: string;
   locale: string;
   sig: string;
@@ -24,9 +34,10 @@ interface TranslatedYaml {
   update?: string;
 }
 
-interface Config {
+export interface Config {
   defaultLocale: string;
   filterKeys: string[];
   contentDir: string;
   managementDir: string;
+  outputDir?: string;
 }
