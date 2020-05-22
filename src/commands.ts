@@ -9,7 +9,9 @@ import type { Config } from './types';
 async function getTranslations(targetLocale: string, opts: Config) {
   const { contentDir, filterKeys, defaultLocale } = opts;
   const existing = await read(contentDir);
-  const filtered = existing.filter(({ key }) => filterKeys.indexOf(key) === -1);
+  const filtered = existing.filter(({ key, value }) => {
+    return filterKeys.indexOf(key) === -1 && !value.startsWith('http');
+  });
   const matched = match(filtered).filter(({ locale }) => locale === defaultLocale);
   const requiresTranslating = matched.filter(({ matches }) => !matches[targetLocale]);
   const translated = await translate(requiresTranslating, defaultLocale, targetLocale);

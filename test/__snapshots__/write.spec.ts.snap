@@ -3,23 +3,27 @@
 exports[`write merging merges correctly 1`] = `
 Array [
   Object {
-    "content": "- key: home
+    "content": "\\"0\\":
+  key: home
   title: ホーム
-- key: about
-  title: 約
-- key: news
-  title: ニュース
-- key: special
+\\"1\\":
+  key: news
+  title: OLD
+\\"2\\":
+  key: special
   title: Don't delete me
+\\"[0:home].title\\": ホーム
+\\"[1:about].title\\": 約
+\\"[2:news].title\\": ニュース
 ",
     "fileName": "test/data/merge-test/menu.ja.yaml",
   },
   Object {
     "content": "intro: このサブフォルダへようこそ
 description: これは翻訳されない説明です
+\\"items.[0:test].title\\": テスト中
+\\"items.[1:hello].title\\": ハローワーク
 items:
-  - key: test
-    title: テスト中
   - key: hello
     title: ハローワーク
 ",
@@ -42,23 +46,17 @@ body: |
 exports[`write writes freshly correctly 1`] = `
 Array [
   Object {
-    "content": "- key: home
-  title: ホーム
-- key: about
-  title: 約
-- key: news
-  title: ニュース
+    "content": "\\"[0:home].title\\": ホーム
+\\"[1:about].title\\": 約
+\\"[2:news].title\\": ニュース
 ",
     "fileName": "test/data/out-temp/menu.ja.yaml",
   },
   Object {
     "content": "intro: このサブフォルダへようこそ
 description: これは翻訳されない説明です
-items:
-  - key: test
-    title: テスト中
-  - key: hello
-    title: ハローワーク
+\\"items.[0:test].title\\": テスト中
+\\"items.[1:hello].title\\": ハローワーク
 ",
     "fileName": "test/data/out-temp/sub/welcome.ja.yaml",
   },

@@ -64,3 +64,8 @@ Types can be: `google`, `human`
 - English updates a google translated item - get new google translation
 - English updates a human translation - add a flag
 - Content structure changes - use english hash to migrate
+
+## TODO
+
+- Get rid of CSV stuff; use YAML instead (with comments)
+- Option for Markdown

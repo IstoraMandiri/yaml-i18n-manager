@@ -3,7 +3,7 @@ import { resolve, dirname } from 'path';
 import { promises } from 'fs';
 
 import type { TranslatedYaml } from './types';
-import { log } from './utils';
+import { log, K_SEP } from './utils';
 
 const { readFile, mkdir, writeFile } = promises;
 
@@ -17,13 +17,14 @@ function getUnique(o: any, n: any) {
 }
 
 function inflate(key: string, val: any, obj: any): any {
-  const [frag, ...rest] = key.split('.');
+  const [frag, ...rest] = key.split(K_SEP);
   if (frag.startsWith('[') && frag.endsWith(']')) {
-    const [_i, subKey] = frag.slice(1, -1).split(':');
+    const [_i, ..._subKey] = frag.slice(1, -1).split(':');
+    const subKey = _subKey.join(':');
     const i = parseInt(_i);
     const arr = obj || [];
     arr[i] = hoistKey({
-      ...inflate(rest.join('.'), val, arr[i]),
+      ...inflate(rest.join(K_SEP), val, arr[i]),
       key: subKey,
     });
     return arr;
@@ -36,7 +37,7 @@ function inflate(key: string, val: any, obj: any): any {
   } else if (key) {
     return hoistKey({
       ...obj,
-      [frag]: inflate(rest.join('.'), val, obj[frag]),
+      [frag]: inflate(rest.join(K_SEP), val, (obj || {})[frag]),
     });
   }
 }

@@ -5,8 +5,11 @@
   "repository": "https://github.com/hitchcott/yaml-i18n-manager",
   "author": "Chris Hitchcott",
   "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "bin": {
+    "yim": "./dist/index.js"
+  },
   "files": [
     "dist/**/*"
   ],
@@ -20,6 +23,7 @@
   },
   "devDependencies": {
     "@types/flat": "^5.0.1",
+    "@types/fs-extra": "^9.0.1",
     "@types/jest": "^25.2.2",
     "@types/node": "^14.0.1",
     "@types/rimraf": "^3.0.0",

@@ -1,7 +1,7 @@
 import YAML from 'yaml';
 import { resolve, relative } from 'path';
 import { promises } from 'fs';
-import { hash } from './utils';
+import { hash, K_SEP } from './utils';
 const { readdir, readFile } = promises;
 
 import type { ExistingYaml } from './types';
@@ -28,19 +28,25 @@ async function getFiles(root: string, dir?: string): Promise<ParsedFile[]> {
   const files = await Promise.all(
     dirEntries.map((entry): any => {
       const res = resolve(target, entry.name);
-      return entry.isDirectory() ? getFiles(root, res) : parseFile(root, res);
+      if (entry.isDirectory()) {
+        return getFiles(root, res);
+      }
+      if (entry.name.endsWith('.yaml') && !entry.name.includes('.collection.')) {
+        return parseFile(root, res);
+      }
     }),
   );
-  return Array.prototype.concat(...files);
+  return Array.prototype.concat(...files.filter((i) => i));
 }
 
 function flatten<T extends Record<string, any>>(
   object: T,
   path: string | null = null,
-  separator = '.',
+  separator = '__',
 ): T {
   return Object.keys(object).reduce((acc: T, key: string): T => {
     // always ignore `key` key
+    // ignore non-strings
     if (key === 'key') {
       return acc;
     }
@@ -52,6 +58,9 @@ function flatten<T extends Record<string, any>>(
     }
     return typeof object?.[key] === 'object'
       ? { ...acc, ...flatten(object[key], newPath, separator) }
+      : // filter non-strings
+      typeof object[key] !== 'string'
+      ? acc
       : { ...acc, [newPath]: object[key] };
   }, {} as T);
 }
@@ -69,7 +78,7 @@ function normalize(files: ParsedFile[]): ExistingYaml[] {
             path,
             locale,
             sig,
-            key: sig.split('.').slice(-1)[0],
+            key: sig.split(K_SEP).slice(-1)[0],
             value: flat[sig],
             vHash: hash(flat[sig]),
           },

@@ -2,6 +2,8 @@ import { createHash } from 'crypto';
 
 import type { ExistingYaml, TranslatedYaml, MatchedYaml } from './types';
 
+export const K_SEP = '__';
+
 export function normalizeSig({ path, sig }: ExistingYaml | TranslatedYaml) {
   const nPath = path.split('.').slice(0, -2).join('.');
   return `${nPath}:${sig.replace(/\[.*?\:/g, '[')}`;
