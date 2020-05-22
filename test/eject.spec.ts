@@ -1,7 +1,7 @@
 import rimraf from 'rimraf';
 import fs from 'fs-extra';
 
-import write from '../src/write';
+import eject from '../src/eject';
 
 import translatedYaml from './data/misc/translated.json';
 import scan from './util/scan';
@@ -13,11 +13,11 @@ const mergeTest = './test/data/merge-test';
 function clean() {
   rimraf.sync(outDir);
 }
-describe('write', () => {
+describe('eject', () => {
   beforeAll(clean);
   afterEach(clean);
-  it('writes freshly correctly', async () => {
-    await write(translatedYaml, outDir);
+  it('ejects freshly correctly', async () => {
+    await eject(translatedYaml, outDir);
     expect(await scan(outDir)).toMatchSnapshot();
   });
   describe('merging', () => {
@@ -29,7 +29,7 @@ describe('write', () => {
       rimraf.sync(mergeTest);
     });
     it('merges correctly', async () => {
-      await write(translatedYaml, mergeTest);
+      await eject(translatedYaml, mergeTest);
       expect(await scan(mergeTest)).toMatchSnapshot();
     });
   });

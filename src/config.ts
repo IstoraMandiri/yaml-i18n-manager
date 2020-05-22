@@ -8,7 +8,8 @@ const { writeFile, readFile, mkdir } = promises;
 export const defaultConfig = {
   defaultLocale: 'en',
   contentDir: 'content',
-  managementDir: 'i18n-management',
+  yamlDir: '_i18n',
+  csvDir: 'csv',
   filterKeys: ['link', 'className', 'date'],
 };
 

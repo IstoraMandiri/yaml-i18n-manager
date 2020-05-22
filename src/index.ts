@@ -21,11 +21,12 @@ const argv: any = yargs
       alias: 'config',
       type: 'string',
       describe: 'Config file',
-      default: `${defaultConfig.managementDir}/config.yaml`,
+      default: `i18n-config.yaml`,
     },
   })
   .command('init', 'Generate Config File')
-  .command('generate <locale>', 'Auto-translate content', requireLocale)
+  .command('generate', 'Auto-translate content and create i18n yaml files')
+  .command('eject <locale>', 'Auto-translate content and eject YAML in main project', requireLocale)
   .command('export <locale>', 'Export CSV for a locale', requireLocale)
   .command('import <csv>', 'Import CSV translations', (y: any) => {
     y.positional('csv', {

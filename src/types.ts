@@ -15,6 +15,7 @@ export interface ExistingYaml {
   key: string;
   value: string;
   vHash: string;
+  fullSig: string;
 }
 
 export interface MatchedYaml extends ExistingYaml {
@@ -32,12 +33,14 @@ export interface TranslatedYaml {
   defaultValue: string;
   value: string;
   update?: string;
+  fullSig: string;
 }
 
 export interface Config {
   defaultLocale: string;
   filterKeys: string[];
   contentDir: string;
-  managementDir: string;
+  csvDir: string;
+  yamlDir: string;
   outputDir?: string;
 }

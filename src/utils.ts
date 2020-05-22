@@ -46,6 +46,7 @@ export function combine(
         key: m.key,
         dHash: m.vHash,
         defaultValue: m.value,
+        fullSig: m.fullSig,
         value: match && match.value,
       };
     },

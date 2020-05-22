@@ -8,31 +8,38 @@ import scan from './util/scan';
 
 const contentSrc = './test/data/content-input';
 
-const managementDir = './test/data/test-management';
+const csvDir = './test/data/test-csv';
 const contentDir = './test/data/test-content';
 
-const config = { ...defaultConfig, managementDir, contentDir };
+const config = { ...defaultConfig, csvDir, contentDir };
 
 describe('commands', () => {
   beforeEach(async () => {
     rimraf.sync(contentDir);
-    rimraf.sync(managementDir);
-    await fs.mkdir(managementDir);
+    rimraf.sync(csvDir);
+    await fs.mkdir(csvDir);
     await fs.copy(contentSrc, contentDir);
   });
   afterEach(() => {
     rimraf.sync(contentDir);
-    rimraf.sync(managementDir);
+    rimraf.sync(csvDir);
   });
+  describe('generate', () => {
+    it('exports', async () => {
+      await commands.generate({ locale: 'ja' }, config);
+      expect(await scan(contentDir)).toMatchSnapshot();
+    });
+  });
+
   describe('export', () => {
     it('exports', async () => {
       await commands.export({ locale: 'ja' }, config);
-      expect(await scan(managementDir)).toMatchSnapshot();
+      expect(await scan(csvDir)).toMatchSnapshot();
     });
   });
-  describe('generate', () => {
-    it('generates', async () => {
-      await commands.generate({ locale: 'ja' }, config);
+  describe('eject', () => {
+    it('ejects', async () => {
+      await commands.eject({ locale: 'ja' }, config);
       expect(await scan(contentDir)).toMatchSnapshot();
     });
   });

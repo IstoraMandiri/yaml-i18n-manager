@@ -1,6 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`write merging merges correctly 1`] = `
+exports[`eject ejects freshly correctly 1`] = `
+Array [
+  Object {
+    "content": "\\"[0:home].title\\": ホーム
+\\"[1:about].title\\": 約
+\\"[2:news].title\\": ニュース
+",
+    "fileName": "test/data/out-temp/menu.ja.yaml",
+  },
+  Object {
+    "content": "intro: このサブフォルダへようこそ
+description: これは翻訳されない説明です
+\\"items.[0:test].title\\": テスト中
+\\"items.[1:hello].title\\": ハローワーク
+",
+    "fileName": "test/data/out-temp/sub/welcome.ja.yaml",
+  },
+  Object {
+    "content": "title: 題名
+description: これは説明です
+new: 新しいキー
+body: |
+  ##これはいくつかの値下げです
+
+  これはどのように？
+",
+    "fileName": "test/data/out-temp/ui.global.ja.yaml",
+  },
+]
+`;
+
+exports[`eject merging merges correctly 1`] = `
 Array [
   Object {
     "content": "\\"0\\":
@@ -39,37 +70,6 @@ body: |
   これはどのように？
 ",
     "fileName": "test/data/merge-test/ui.global.ja.yaml",
-  },
-]
-`;
-
-exports[`write writes freshly correctly 1`] = `
-Array [
-  Object {
-    "content": "\\"[0:home].title\\": ホーム
-\\"[1:about].title\\": 約
-\\"[2:news].title\\": ニュース
-",
-    "fileName": "test/data/out-temp/menu.ja.yaml",
-  },
-  Object {
-    "content": "intro: このサブフォルダへようこそ
-description: これは翻訳されない説明です
-\\"items.[0:test].title\\": テスト中
-\\"items.[1:hello].title\\": ハローワーク
-",
-    "fileName": "test/data/out-temp/sub/welcome.ja.yaml",
-  },
-  Object {
-    "content": "title: 題名
-description: これは説明です
-new: 新しいキー
-body: |
-  ##これはいくつかの値下げです
-
-  これはどのように？
-",
-    "fileName": "test/data/out-temp/ui.global.ja.yaml",
   },
 ]
 `;

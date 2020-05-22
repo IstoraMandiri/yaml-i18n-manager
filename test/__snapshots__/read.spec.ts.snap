@@ -3,54 +3,61 @@
 exports[`read returns the key/values 1`] = `
 Array [
   Object {
+    "fullSig": "menu/home__title",
     "key": "title",
     "locale": "en",
     "path": "menu.en.yaml",
-    "sig": "[0:home]__title",
+    "sig": "home__title",
     "vHash": "OnhpU4izi1",
     "value": "Home",
   },
   Object {
+    "fullSig": "menu/home__link",
     "key": "link",
     "locale": "en",
     "path": "menu.en.yaml",
-    "sig": "[0:home]__link",
+    "sig": "home__link",
     "vHash": "il7asoJjJE",
     "value": "/",
   },
   Object {
+    "fullSig": "menu/about__title",
     "key": "title",
     "locale": "en",
     "path": "menu.en.yaml",
-    "sig": "[1:about]__title",
+    "sig": "about__title",
     "vHash": "Tvyg0Qxf64",
     "value": "About",
   },
   Object {
+    "fullSig": "menu/about__link",
     "key": "link",
     "locale": "en",
     "path": "menu.en.yaml",
-    "sig": "[1:about]__link",
+    "sig": "about__link",
     "vHash": "l5vdxKjKr9",
     "value": "/about",
   },
   Object {
+    "fullSig": "menu/news__title",
     "key": "title",
     "locale": "en",
     "path": "menu.en.yaml",
-    "sig": "[2:news]__title",
+    "sig": "news__title",
     "vHash": "aXUvIxOy8B",
     "value": "News",
   },
   Object {
+    "fullSig": "menu/news__link",
     "key": "link",
     "locale": "en",
     "path": "menu.en.yaml",
-    "sig": "[2:news]__link",
+    "sig": "news__link",
     "vHash": "9GsW7VpO30",
     "value": "/news",
   },
   Object {
+    "fullSig": "sub/welcome/intro",
     "key": "intro",
     "locale": "en",
     "path": "sub/welcome.en.yaml",
@@ -59,6 +66,7 @@ Array [
     "value": "Welcome to this sub folder",
   },
   Object {
+    "fullSig": "sub/welcome/description",
     "key": "description",
     "locale": "en",
     "path": "sub/welcome.en.yaml",
@@ -67,22 +75,25 @@ Array [
     "value": "This is a description that won't be translated",
   },
   Object {
+    "fullSig": "sub/welcome/items__test__title",
     "key": "title",
     "locale": "en",
     "path": "sub/welcome.en.yaml",
-    "sig": "items__[0:test]__title",
+    "sig": "items__test__title",
     "vHash": "6Aaikc/D5h",
     "value": "Testing",
   },
   Object {
+    "fullSig": "sub/welcome/items__hello__title",
     "key": "title",
     "locale": "en",
     "path": "sub/welcome.en.yaml",
-    "sig": "items__[1:hello]__title",
+    "sig": "items__hello__title",
     "vHash": "UJJQgXm1Ai",
     "value": "Hello Work",
   },
   Object {
+    "fullSig": "ui.global/title",
     "key": "title",
     "locale": "en",
     "path": "ui.global.en.yaml",
@@ -91,6 +102,7 @@ Array [
     "value": "Title",
   },
   Object {
+    "fullSig": "ui.global/description",
     "key": "description",
     "locale": "en",
     "path": "ui.global.en.yaml",
@@ -99,6 +111,7 @@ Array [
     "value": "This is a description",
   },
   Object {
+    "fullSig": "ui.global/new",
     "key": "new",
     "locale": "en",
     "path": "ui.global.en.yaml",
@@ -107,6 +120,7 @@ Array [
     "value": "Some new key",
   },
   Object {
+    "fullSig": "ui.global/body",
     "key": "body",
     "locale": "en",
     "path": "ui.global.en.yaml",
@@ -115,6 +129,36 @@ Array [
     "value": "## This is some markdown
 
 How is this?
+",
+  },
+  Object {
+    "fullSig": "ui.global/footer",
+    "key": "footer",
+    "locale": "ja",
+    "path": "ui.global.ja.yaml",
+    "sig": "footer",
+    "vHash": "nLFiSv59Yu",
+    "value": "Footer here
+",
+  },
+  Object {
+    "fullSig": "menu/hello",
+    "key": "hello",
+    "locale": "ja",
+    "path": "menu.ja.yaml",
+    "sig": "hello",
+    "vHash": "FW0ofrgfwt",
+    "value": "This is a translated key
+",
+  },
+  Object {
+    "fullSig": "sub/welcome/items__test__title",
+    "key": "title",
+    "locale": "ja",
+    "path": "sub/welcome.ja.yaml",
+    "sig": "items__test__title",
+    "vHash": "XOdEpb8l5T",
+    "value": "This is the title!
 ",
   },
 ]

@@ -1,8 +1,0 @@
-defaultLocale: en
-contentDir: test/data/content-input
-outputDir: test/data/content-output
-managementDir: test/data/test-i18n-management
-filterKeys:
-  - link
-  - className
-  - date

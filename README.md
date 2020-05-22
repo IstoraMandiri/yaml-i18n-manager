@@ -67,5 +67,4 @@ Types can be: `google`, `human`
 
 ## TODO
 
-- Get rid of CSV stuff; use YAML instead (with comments)
 - Option for Markdown

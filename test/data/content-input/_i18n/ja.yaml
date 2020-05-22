@@ -1,0 +1,9 @@
+# updated here
+ui.global/footer: |
+  Footer here
+# English Here...
+menu/hello: |
+  This is a translated key
+# original title here
+sub/welcome/items__test__title: |
+  This is the title!
