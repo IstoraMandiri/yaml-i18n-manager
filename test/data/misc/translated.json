@@ -2,29 +2,32 @@
   {
     "path": "menu.ja.yaml",
     "locale": "ja",
-    "sig": "[0:home].title",
+    "sig": "home__title",
     "key": "title",
     "dHash": "OnhpU4izi1",
     "defaultValue": "Home",
-    "value": "ホーム"
+    "value": "ホーム",
+    "fullSig": "notUsed"
   },
   {
     "path": "menu.ja.yaml",
     "locale": "ja",
-    "sig": "[1:about].title",
+    "sig": "about__title",
     "key": "title",
     "dHash": "Tvyg0Qxf64",
     "defaultValue": "About",
-    "value": "約"
+    "value": "約",
+    "fullSig": "notUsed"
   },
   {
     "path": "menu.ja.yaml",
     "locale": "ja",
-    "sig": "[2:news].title",
+    "sig": "news__title",
     "key": "title",
     "dHash": "aXUvIxOy8B",
     "defaultValue": "News",
-    "value": "ニュース"
+    "value": "ニュース",
+    "fullSig": "notUsed"
   },
   {
     "path": "sub/welcome.ja.yaml",
@@ -33,7 +36,8 @@
     "key": "intro",
     "dHash": "O7zuwuv2p5",
     "defaultValue": "Welcome to this sub folder",
-    "value": "このサブフォルダへようこそ"
+    "value": "このサブフォルダへようこそ",
+    "fullSig": "notUsed"
   },
   {
     "path": "sub/welcome.ja.yaml",
@@ -42,25 +46,28 @@
     "key": "description",
     "dHash": "luDxWK7tmC",
     "defaultValue": "This is a description that won't be translated",
-    "value": "これは翻訳されない説明です"
+    "value": "これは翻訳されない説明です",
+    "fullSig": "notUsed"
   },
   {
     "path": "sub/welcome.ja.yaml",
     "locale": "ja",
-    "sig": "items.[0:test].title",
+    "sig": "items__test__title",
     "key": "title",
     "dHash": "6Aaikc/D5h",
     "defaultValue": "Testing",
-    "value": "テスト中"
+    "value": "テスト中",
+    "fullSig": "notUsed"
   },
   {
     "path": "sub/welcome.ja.yaml",
     "locale": "ja",
-    "sig": "items.[1:hello].title",
+    "sig": "items__hello__title",
     "key": "title",
     "dHash": "UJJQgXm1Ai",
     "defaultValue": "Hello Work",
-    "value": "ハローワーク"
+    "value": "ハローワーク",
+    "fullSig": "notUsed"
   },
   {
     "path": "ui.global.ja.yaml",
@@ -69,7 +76,8 @@
     "key": "title",
     "dHash": "fozSBW2nOn",
     "defaultValue": "Title",
-    "value": "題名"
+    "value": "題名",
+    "fullSig": "notUsed"
   },
   {
     "path": "ui.global.ja.yaml",
@@ -78,7 +86,8 @@
     "key": "description",
     "dHash": "DdECGc15NC",
     "defaultValue": "This is a description",
-    "value": "これは説明です"
+    "value": "これは説明です",
+    "fullSig": "notUsed"
   },
   {
     "path": "ui.global.ja.yaml",
@@ -87,7 +96,8 @@
     "key": "new",
     "dHash": "V7FjiOgcRD",
     "defaultValue": "Some new key",
-    "value": "新しいキー"
+    "value": "新しいキー",
+    "fullSig": "notUsed"
   },
   {
     "path": "ui.global.ja.yaml",
@@ -96,6 +106,7 @@
     "key": "body",
     "dHash": "zcRMuPQjiV",
     "defaultValue": "## This is some markdown\n\nHow is this?\n",
-    "value": "##これはいくつかの値下げです\n\nこれはどのように？\n"
+    "value": "##これはいくつかの値下げです\n\nこれはどのように？\n",
+    "fullSig": "notUsedす\n\nこれはどのように？\n"
   }
 ]

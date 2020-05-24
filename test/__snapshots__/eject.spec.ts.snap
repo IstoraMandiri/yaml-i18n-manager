@@ -3,17 +3,23 @@
 exports[`eject ejects freshly correctly 1`] = `
 Array [
   Object {
-    "content": "\\"[0:home].title\\": ホーム
-\\"[1:about].title\\": 約
-\\"[2:news].title\\": ニュース
+    "content": "home:
+  title: ホーム
+about:
+  title: 約
+news:
+  title: ニュース
 ",
     "fileName": "test/data/out-temp/menu.ja.yaml",
   },
   Object {
     "content": "intro: このサブフォルダへようこそ
 description: これは翻訳されない説明です
-\\"items.[0:test].title\\": テスト中
-\\"items.[1:hello].title\\": ハローワーク
+items:
+  test:
+    title: テスト中
+  hello:
+    title: ハローワーク
 ",
     "fileName": "test/data/out-temp/sub/welcome.ja.yaml",
   },
@@ -34,28 +40,27 @@ body: |
 exports[`eject merging merges correctly 1`] = `
 Array [
   Object {
-    "content": "\\"0\\":
-  key: home
+    "content": "home:
   title: ホーム
-\\"1\\":
-  key: news
-  title: OLD
-\\"2\\":
-  key: special
+about:
+  title: 約
+news:
+  title: ニュース
+special:
   title: Don't delete me
-\\"[0:home].title\\": ホーム
-\\"[1:about].title\\": 約
-\\"[2:news].title\\": ニュース
 ",
     "fileName": "test/data/merge-test/menu.ja.yaml",
   },
   Object {
     "content": "intro: このサブフォルダへようこそ
 description: これは翻訳されない説明です
-\\"items.[0:test].title\\": テスト中
-\\"items.[1:hello].title\\": ハローワーク
 items:
-  - key: hello
+  \\"0\\":
+    key: hello
+    title: ハローワーク
+  test:
+    title: テスト中
+  hello:
     title: ハローワーク
 ",
     "fileName": "test/data/merge-test/sub/welcome.ja.yaml",

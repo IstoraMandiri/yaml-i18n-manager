@@ -25,7 +25,7 @@ describe('commands', () => {
     rimraf.sync(csvDir);
   });
   describe('generate', () => {
-    it('exports', async () => {
+    it('generates', async () => {
       await commands.generate({ locale: 'ja' }, config);
       expect(await scan(contentDir)).toMatchSnapshot();
     });

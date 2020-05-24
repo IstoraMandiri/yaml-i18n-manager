@@ -1,4 +1,7 @@
 import { createHash } from 'crypto';
+import { promises } from 'fs';
+const { readdir } = promises;
+import { resolve, relative } from 'path';
 
 import type { ExistingYaml, TranslatedYaml, MatchedYaml } from './types';
 
@@ -55,4 +58,23 @@ export function combine(
 
 export function log(str: string, ...rest: any) {
   console.log(str, ...rest);
+}
+
+export async function scanDir(
+  contentDir: string,
+  dir?: string,
+): Promise<{ name: string; path: string; relative: string; ext: string }[]> {
+  const target = dir || contentDir;
+  const dirEntries = await readdir(target, { withFileTypes: true });
+  const files = await Promise.all(
+    dirEntries.map((entry: any): any => {
+      const res = resolve(target, entry.name);
+      if (entry.isDirectory()) {
+        return scanDir(contentDir, res);
+      }
+      const ext = entry.name.split('.').pop();
+      return { ...entry, path: res, ext, relative: relative(contentDir, res) };
+    }),
+  );
+  return Array.prototype.concat(...files.filter((i) => i));
 }

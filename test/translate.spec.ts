@@ -17,7 +17,7 @@ googleTranslate.mockImplementation(() => {
   };
 });
 
-import translate from '../src/translate';
+import { translateYaml } from '../src/translate';
 
 const sampleData = [
   {
@@ -27,6 +27,7 @@ const sampleData = [
     key: 'string',
     value: 'string',
     vHash: 'string',
+    fullSig: 'blah',
   },
   {
     path: 'string2',
@@ -35,11 +36,12 @@ const sampleData = [
     key: 'string2',
     value: 'string2',
     vHash: 'string2',
+    fullSig: 'blah',
   },
 ];
 
 describe('translate', () => {
   it('returns the correct translated YAML object', async () => {
-    expect(await translate(sampleData, 'en', 'jp')).toMatchSnapshot();
+    expect(await translateYaml(sampleData, 'en', 'jp')).toMatchSnapshot();
   });
 });

@@ -42,6 +42,7 @@ async function scanDir(opts: Config, dir?: string): Promise<ParsedFile[]> {
   );
   return Array.prototype.concat(...files.filter((i) => i));
 }
+
 function addSig(t: any): ExistingYaml {
   return { ...t, fullSig: `${t.path.split('.').slice(0, -2).join('.')}/${t.sig}` };
 }

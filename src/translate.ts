@@ -27,11 +27,11 @@ function transformTranslation(translated: string, original: string) {
   return str;
 }
 
-export default async function translate(
+export async function translateYaml(
   normalized: ExistingYaml[],
   from: string,
   to: string,
-): Promise<TranslatedYaml[]> {
+): Promise<any> {
   return await new Promise((resolve, reject) => {
     gt.translate(
       normalized.map(({ value }) => value),

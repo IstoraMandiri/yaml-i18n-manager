@@ -10,7 +10,8 @@ export const defaultConfig = {
   contentDir: 'content',
   yamlDir: '_i18n',
   csvDir: 'csv',
-  filterKeys: ['link', 'className', 'date'],
+  filterKeys: ['link', 'className', 'date', 'tags'],
+  filterMarkdown: [],
 };
 
 export async function initConfig(argv: any) {

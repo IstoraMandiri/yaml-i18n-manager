@@ -32,13 +32,14 @@ export interface TranslatedYaml {
   dHash: string;
   defaultValue: string;
   value: string;
-  update?: string;
   fullSig: string;
+  update?: string;
 }
 
 export interface Config {
   defaultLocale: string;
   filterKeys: string[];
+  filterMarkdown: string[];
   contentDir: string;
   csvDir: string;
   yamlDir: string;

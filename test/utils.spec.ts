@@ -10,7 +10,7 @@ describe('utils', () => {
             { path: 'a.jp.yaml', sig: 'a', locale: 'jp' },
             { path: 'b.en.yaml', sig: 'a__test__thing', locale: 'en' },
             { path: 'b.jp.yaml', sig: 'a__test__thing', locale: 'jp' },
-          ].map((item, i) => ({ ...item, value: 'a', key: 'b', vHash: 'c' })),
+          ].map((item, i) => ({ ...item, value: 'a', key: 'b', vHash: 'c', fullSig: 'blah' })),
         ),
       ).toMatchSnapshot();
     });

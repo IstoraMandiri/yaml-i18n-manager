@@ -3,78 +3,6 @@
 exports[`commands eject ejects 1`] = `
 Array [
   Object {
-    "content": "- key: home
-  title: Home
-  link: /
-- key: about
-  title: About
-  link: /about
-- key: news
-  title: News
-  link: /news
-",
-    "fileName": "test/data/test-content/menu.en.yaml",
-  },
-  Object {
-    "content": "- key: home
-  title: ホーム
-- key: about
-  title: 約
-- key: news
-  title: ニュース
-",
-    "fileName": "test/data/test-content/menu.ja.yaml",
-  },
-  Object {
-    "content": "intro: Welcome to this sub folder
-description: This is a description that won't be translated
-items:
-  - key: test
-    title: Testing
-  - key: hello
-    title: Hello Work
-",
-    "fileName": "test/data/test-content/sub/welcome.en.yaml",
-  },
-  Object {
-    "content": "intro: このサブフォルダへようこそ
-description: これは翻訳されない説明です
-items:
-  - key: test
-    title: テスト中
-  - key: hello
-    title: ハローワーク
-",
-    "fileName": "test/data/test-content/sub/welcome.ja.yaml",
-  },
-  Object {
-    "content": "title: Title
-description: This is a description
-new: Some new key
-body: |
-  ## This is some markdown
-
-  How is this?
-",
-    "fileName": "test/data/test-content/ui.global.en.yaml",
-  },
-  Object {
-    "content": "title: 題名
-description: これは説明です
-new: いくつかの新しいキー
-body: |
-  ##これはいくつかの値下げです
-
-  これはどのように？
-",
-    "fileName": "test/data/test-content/ui.global.ja.yaml",
-  },
-]
-`;
-
-exports[`commands eject ejects 2`] = `
-Array [
-  Object {
     "content": "# updated here
 ui.global/footer: |
   Footer here
@@ -109,6 +37,20 @@ news:
   title: ニュース
 ",
     "fileName": "test/data/test-content/menu.ja.yaml",
+  },
+  Object {
+    "content": "---
+title: Test title
+tags: ['a','b','c']
+description: Description goes here
+---
+
+## I am some markdown. Please translate me!
+
+Markdown is a lightweight markup language with plain-text-formatting syntax. Its design allows it to be converted to many output formats, but the original tool by the same name only supports HTML. [Markdown](https://en.wikipedia.org/wiki/Markdown) is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor.
+
+Since the initial description of Markdown contained ambiguities and unanswered questions, the implementations that appeared over the years have subtle differences and many come with syntax extensions.",
+    "fileName": "test/data/test-content/sub/index.en.md",
   },
   Object {
     "content": "intro: Welcome to this sub folder
@@ -162,13 +104,14 @@ exports[`commands export exports 1`] = `
 Array [
   Object {
     "content": "dHash,Location,Key,Default Language,Existing Translation,Updated Translation (or leave blank)
-OnhpU4izi1,menu.ja.yaml,[0:home]__title,Home,ホーム,
-Tvyg0Qxf64,menu.ja.yaml,[1:about]__title,About,約,
-aXUvIxOy8B,menu.ja.yaml,[2:news]__title,News,ニュース,
+OnhpU4izi1,menu.ja.yaml,home__title,Home,ホーム,
+Tvyg0Qxf64,menu.ja.yaml,about__title,About,約,
+aXUvIxOy8B,menu.ja.yaml,news__title,News,ニュース,
 O7zuwuv2p5,sub/welcome.ja.yaml,intro,Welcome to this sub folder,このサブフォルダへようこそ,
 luDxWK7tmC,sub/welcome.ja.yaml,description,This is a description that won't be translated,これは翻訳されない説明です,
-6Aaikc/D5h,sub/welcome.ja.yaml,items__[0:test]__title,Testing,テスト中,
-UJJQgXm1Ai,sub/welcome.ja.yaml,items__[1:hello]__title,Hello Work,ハローワーク,
+6Aaikc/D5h,sub/welcome.ja.yaml,items__test__title,Testing,\\"This is the title!
+\\",
+UJJQgXm1Ai,sub/welcome.ja.yaml,items__hello__title,Hello Work,ハローワーク,
 fozSBW2nOn,ui.global.ja.yaml,title,Title,題名,
 DdECGc15NC,ui.global.ja.yaml,description,This is a description,これは説明です,
 V7FjiOgcRD,ui.global.ja.yaml,new,Some new key,いくつかの新しいキー,
@@ -185,7 +128,7 @@ How is this?
 ]
 `;
 
-exports[`commands generate exports 1`] = `
+exports[`commands generate generates 1`] = `
 Array [
   Object {
     "content": "
@@ -253,6 +196,20 @@ ui.global/body: |
     "fileName": "test/data/test-content/menu.en.yaml",
   },
   Object {
+    "content": "---
+title: Test title
+tags: ['a','b','c']
+description: Description goes here
+---
+
+## I am some markdown. Please translate me!
+
+Markdown is a lightweight markup language with plain-text-formatting syntax. Its design allows it to be converted to many output formats, but the original tool by the same name only supports HTML. [Markdown](https://en.wikipedia.org/wiki/Markdown) is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor.
+
+Since the initial description of Markdown contained ambiguities and unanswered questions, the implementations that appeared over the years have subtle differences and many come with syntax extensions.",
+    "fileName": "test/data/test-content/sub/index.en.md",
+  },
+  Object {
     "content": "intro: Welcome to this sub folder
 description: This is a description that won't be translated
 items:
@@ -280,6 +237,19 @@ body: |
 exports[`commands import imports 1`] = `
 Array [
   Object {
+    "content": "# updated here
+ui.global/footer: |
+  Footer here
+# English Here...
+menu/hello: |
+  This is a translated key
+# original title here
+sub/welcome/items__test__title: |
+  This is the title!
+",
+    "fileName": "test/data/test-content/_i18n/ja.yaml",
+  },
+  Object {
     "content": "- key: home
   title: Home
   link: /
@@ -293,9 +263,24 @@ Array [
     "fileName": "test/data/test-content/menu.en.yaml",
   },
   Object {
-    "content": "\\"[0:home].title\\": Test update
+    "content": "home:
+  title: Test update
 ",
     "fileName": "test/data/test-content/menu.ja.yaml",
+  },
+  Object {
+    "content": "---
+title: Test title
+tags: ['a','b','c']
+description: Description goes here
+---
+
+## I am some markdown. Please translate me!
+
+Markdown is a lightweight markup language with plain-text-formatting syntax. Its design allows it to be converted to many output formats, but the original tool by the same name only supports HTML. [Markdown](https://en.wikipedia.org/wiki/Markdown) is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor.
+
+Since the initial description of Markdown contained ambiguities and unanswered questions, the implementations that appeared over the years have subtle differences and many come with syntax extensions.",
+    "fileName": "test/data/test-content/sub/index.en.md",
   },
   Object {
     "content": "intro: Welcome to this sub folder
@@ -333,6 +318,19 @@ body: |
 exports[`commands import merges correctly 1`] = `
 Array [
   Object {
+    "content": "# updated here
+ui.global/footer: |
+  Footer here
+# English Here...
+menu/hello: |
+  This is a translated key
+# original title here
+sub/welcome/items__test__title: |
+  This is the title!
+",
+    "fileName": "test/data/test-content/_i18n/ja.yaml",
+  },
+  Object {
     "content": "- key: home
   title: Home
   link: /
@@ -346,9 +344,24 @@ Array [
     "fileName": "test/data/test-content/menu.en.yaml",
   },
   Object {
-    "content": "\\"[0:home].title\\": Test update
+    "content": "home:
+  title: Test update
 ",
     "fileName": "test/data/test-content/menu.ja.yaml",
+  },
+  Object {
+    "content": "---
+title: Test title
+tags: ['a','b','c']
+description: Description goes here
+---
+
+## I am some markdown. Please translate me!
+
+Markdown is a lightweight markup language with plain-text-formatting syntax. Its design allows it to be converted to many output formats, but the original tool by the same name only supports HTML. [Markdown](https://en.wikipedia.org/wiki/Markdown) is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor.
+
+Since the initial description of Markdown contained ambiguities and unanswered questions, the implementations that appeared over the years have subtle differences and many come with syntax extensions.",
+    "fileName": "test/data/test-content/sub/index.en.md",
   },
   Object {
     "content": "intro: Welcome to this sub folder

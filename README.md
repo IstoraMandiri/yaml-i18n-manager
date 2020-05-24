@@ -67,4 +67,5 @@ Types can be: `google`, `human`
 
 ## TODO
 
-- Option for Markdown
+- Option for markdown
+- Option to generate all locales
