@@ -34,8 +34,12 @@ export default async function generateYaml(translations: TranslatedYaml[], fileP
 export async function getYamlTranslations(targetLocale: string, opts: Config) {
   const { filterKeys, defaultLocale } = opts;
   const existing = await read(opts);
-  const filtered = existing.filter(({ key, value }) => {
-    return filterKeys.indexOf(key) === -1 && !value.startsWith('http');
+  const filtered = existing.filter(({ key, value, locale }) => {
+    return (
+      (locale === defaultLocale || locale === targetLocale) &&
+      filterKeys.indexOf(key) === -1 &&
+      !value.startsWith('http')
+    );
   });
   const matched = match(filtered).filter(({ locale }) => locale === defaultLocale);
   const requiresTranslating = matched.filter(({ matches }) => !matches[targetLocale]);

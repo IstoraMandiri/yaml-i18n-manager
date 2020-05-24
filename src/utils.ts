@@ -7,11 +7,6 @@ import type { ExistingYaml, TranslatedYaml, MatchedYaml } from './types';
 
 export const K_SEP = '__';
 
-export function normalizeSig({ path, sig }: ExistingYaml | TranslatedYaml) {
-  const nPath = path.split('.').slice(0, -2).join('.');
-  return `${nPath}:${sig.replace(/\[.*?\:/g, '[')}`;
-}
-
 export function replaceLocaleInPath(path: string, posftFix: string) {
   return `${path.split('.').slice(0, -2).join('.')}.${posftFix}`;
 }
@@ -23,7 +18,7 @@ export function hash(str: string): string {
 export function match(yamls: ExistingYaml[]): MatchedYaml[] {
   return yamls.map((dYaml) => {
     const matches = yamls.reduce((o, tYaml) => {
-      if (tYaml.locale == dYaml.locale || normalizeSig(tYaml) !== normalizeSig(dYaml)) {
+      if (tYaml.locale == dYaml.locale || tYaml.fullSig !== dYaml.fullSig) {
         return o;
       }
       return { [tYaml.locale]: tYaml };
@@ -39,8 +34,7 @@ export function combine(
 ): TranslatedYaml[] {
   return matched.map(
     (m): TranslatedYaml => {
-      const match =
-        (m.matches || {})[locale] || translated.find((t) => normalizeSig(t) === normalizeSig(m));
+      const match = (m.matches || {})[locale] || translated.find((t) => t.fullSig === m.fullSig);
       const path = replaceLocaleInPath(m.path, `${locale}.yaml`);
       return {
         path,

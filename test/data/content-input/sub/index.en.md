@@ -1,6 +1,6 @@
 ---
 title: Test title
-tags: ['a','b','c']
+tags: ['a', 'b', 'c']
 description: Description goes here
 ---
 

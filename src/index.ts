@@ -42,5 +42,8 @@ const argv: any = yargs
     return;
   }
   const [command] = argv._;
+  if (argv.locale && argv.locale !== 'all' && !config.locales.includes(argv.locale)) {
+    throw new Error(`The locale ${argv.locale} you specified is not set in config.`);
+  }
   await commands[command](argv, config);
 })();

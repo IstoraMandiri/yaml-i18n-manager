@@ -4,10 +4,20 @@ import eject from './eject';
 
 import type { Config } from './types';
 import generateYaml, { getYamlTranslations } from './yaml';
+import { generateMarkdown } from './markdown';
 
 const commands: any = {
   generate: async ({ locale }: { locale: string }, config: Config) => {
+    if (locale === 'all') {
+      for (const l of config.locales) {
+        log(`Processing ${l}`);
+        await commands.generate({ locale: l }, config);
+      }
+      log(`Completed translating ${config.locales.length} locales`);
+      return;
+    }
     // generate
+    await generateMarkdown(locale, config);
     const translations = await getYamlTranslations(locale, config);
     const outputDir = `${config.outputDir || config.contentDir}/${config.yamlDir}`;
     const filePath = `${outputDir}/${locale}.yaml`;

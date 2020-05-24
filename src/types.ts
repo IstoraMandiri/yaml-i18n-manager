@@ -41,6 +41,7 @@ export interface Config {
   filterKeys: string[];
   filterMarkdown: string[];
   contentDir: string;
+  locales: string[];
   csvDir: string;
   yamlDir: string;
   outputDir?: string;

@@ -41,7 +41,7 @@ sub/welcome/items__test__title: |
   Object {
     "content": "---
 title: Test title
-tags: ['a','b','c']
+tags: ['a', 'b', 'c']
 description: Description goes here
 ---
 
@@ -49,7 +49,8 @@ description: Description goes here
 
 Markdown is a lightweight markup language with plain-text-formatting syntax. Its design allows it to be converted to many output formats, but the original tool by the same name only supports HTML. [Markdown](https://en.wikipedia.org/wiki/Markdown) is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor.
 
-Since the initial description of Markdown contained ambiguities and unanswered questions, the implementations that appeared over the years have subtle differences and many come with syntax extensions.",
+Since the initial description of Markdown contained ambiguities and unanswered questions, the implementations that appeared over the years have subtle differences and many come with syntax extensions.
+",
     "fileName": "test/data/test-markdown/sub/index.en.md",
   },
   Object {
@@ -58,11 +59,12 @@ title: 試験タイトル
 description: ここに説明が入ります
 ---
 
-##私はいくつかの値下げです。翻訳してください!
+## 私はいくつかの値下げです。翻訳してください!
 
 Markdownは、プレーンテキスト形式の構文を持つ軽量のマークアップ言語です。その設計により、多くの出力形式に変換できますが、同じ名前の元のツールはHTMLのみをサポートします。 [Markdown](https://en.wikipedia.org/wiki/Markdown)は、readmeファイルのフォーマット、オンラインディスカッションフォーラムでのメッセージの書き込み、プレーンテキストエディターを使用したリッチテキストの作成によく使用されます。
 
-Markdownの最初の説明にはあいまいさと未回答の質問が含まれていたため、長年にわたって登場した実装には微妙な違いがあり、その多くに構文拡張が付属しています。",
+Markdownの最初の説明にはあいまいさと未回答の質問が含まれていたため、長年にわたって登場した実装には微妙な違いがあり、その多くに構文拡張が付属しています。
+",
     "fileName": "test/data/test-markdown/sub/index.ja.md",
   },
   Object {

@@ -2,7 +2,7 @@ import yaml from 'yaml';
 import fs from 'fs-extra';
 import { resolve } from 'path';
 import { Config } from './types';
-import { scanDir } from './utils';
+import { scanDir, log } from './utils';
 import { translateYaml } from './translate';
 
 async function parseMarkdonwFile(file: string): Promise<{ header?: any; body: string }> {
@@ -19,9 +19,7 @@ async function parseMarkdonwFile(file: string): Promise<{ header?: any; body: st
 }
 
 function normalize(n: string): string {
-  const str = n.split('.').slice(0, -2).join('.');
-  console.log(str);
-  return str;
+  return n.split('.').slice(0, -2).join('.');
 }
 
 export async function generateMarkdown(locale: string, opts: Config) {
@@ -31,12 +29,15 @@ export async function generateMarkdown(locale: string, opts: Config) {
     .map((md) => ({ ...md, locale: md.name.split('.').slice(-2)[0] }))
     .filter(({ locale }) => [opts.defaultLocale, locale].includes(locale));
   const deduped = markdownFiles.filter(
-    ({ relative, locale }) =>
-      locale === opts.defaultLocale &&
+    ({ relative, locale: l1 }) =>
+      l1 === opts.defaultLocale &&
       !markdownFiles.find(
-        ({ relative: r2, locale: l2 }) => l2 !== locale && normalize(r2) === normalize(relative),
+        ({ relative: r2, locale: l2 }) => l2 === locale && normalize(r2) === normalize(relative),
       ),
   );
+  if (deduped.length === 0) {
+    return;
+  }
   const contents = await Promise.all(
     deduped.map(async (file) => ({ ...file, data: await parseMarkdonwFile(file.path) })),
   );
@@ -53,7 +54,6 @@ export async function generateMarkdown(locale: string, opts: Config) {
       });
     return [...a, ...items];
   }, []);
-
   const translated = await translateYaml(normalized, opts.defaultLocale, locale);
   const constructed = translated.reduce((o: any, { relative, key, value }: any) => {
     const [k, subKey] = key.split('.');
@@ -61,7 +61,6 @@ export async function generateMarkdown(locale: string, opts: Config) {
     update[k] = subKey ? { ...update[k], [subKey]: value } : value;
     return { ...o, [relative]: update };
   }, {});
-  // now write the files.
   await Promise.all(
     Object.keys(constructed).map(async (k) => {
       const newFileName = `${k.split('.').slice(0, -2).join('.')}.${locale}.${k.split('.').pop()}`;
@@ -70,4 +69,5 @@ export async function generateMarkdown(locale: string, opts: Config) {
       await fs.writeFile(resolve(opts.contentDir, newFileName), data);
     }),
   );
+  log(`Wrote ${Object.keys(constructed).length} markdown files`);
 }
