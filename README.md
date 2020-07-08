@@ -8,10 +8,14 @@ CLI tool for managing big projects that use https://github.com/hitchcott/gatsby-
 - Generates CSVs for each language to manage human translations
 - Helps manage updates to the structure of translations over multiple languages
 
+## Install
+
+Clone this repo, NPM install, build, then NPM globally install.
+
 ## Usage
 
 ```bash
-$ gpyim --help
+$ yim --help
 ```
 
 ## Configuration Options
