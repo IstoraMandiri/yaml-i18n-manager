@@ -25,7 +25,11 @@ const argv: any = yargs
     },
   })
   .command('init', 'Generate Config File')
-  .command('generate <locale>', 'Auto-translate content and create i18n yaml files', requireLocale)
+  .command(
+    'generate <locale>',
+    'Translate content and generate files, use `all` for all',
+    requireLocale,
+  )
   .command('eject <locale>', 'Auto-translate content and eject YAML in main project', requireLocale)
   .command('export <locale>', 'Export CSV for a locale', requireLocale)
   .command('import <csv>', 'Import CSV translations', (y: any) => {
